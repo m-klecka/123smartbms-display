@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMS Dashboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="container">
+        <main>
+            <!-- Content Section -->
+            <div id="main-content">
+                <!-- SOC and Voltage (default main page) -->
+                <div class="content-page" id="page-home">
+                    <div class="card">
+                        <i class="material-icons">battery_full</i>
+                        <h2>Stav nabití (%)</h2>
+                        <p id="soc">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">flash_on</i>
+                        <h2>Celkové napětí</h2>
+                        <p id="pack_voltage">-</p>
+                    </div>
+                </div>
+
+                <!-- Currents (second page) -->
+                <div class="content-page" id="page-currents" style="display: none;">
+                    <div class="card">
+                        <i class="material-icons">battery_charging_full</i>
+                        <h2>Proud nabíjení</h2>
+                        <p id="charge_current">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">battery_alert</i>
+                        <h2>Proud vybíjení</h2>
+                        <p id="discharge_current">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">battery_std</i>
+                        <h2>Celkový proud</h2>
+                        <p id="pack_current">-</p>
+                    </div>
+                </div>
+
+                <!-- Other (third page) -->
+                <div class="content-page" id="page-others" style="display: none;">
+                    <div class="card">
+                        <i class="material-icons">error</i>
+                        <h2>Chyba komunikace článků</h2>
+                        <p id="cell_communication_error">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">check_circle</i>
+                        <h2>Povoleno nabíjení</h2>
+                        <p id="allowed_to_charge">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">remove_circle</i>
+                        <h2>Povoleno vybíjení</h2>
+                        <p id="allowed_to_discharge">-</p>
+                    </div>
+                </div>
+
+
+                <!-- Detailed Info (optional page) -->
+                <div class="content-page" id="page-detailed" style="display: none;">
+                    <div class="card">
+                        <i class="material-icons">show_chart</i>
+                        <h2>Nejnižší napětí</h2>
+                        <p id="lowest_cell_voltage">-</p>
+                        <p id="lowest_cell_voltage_num">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">show_chart</i>
+                        <h2>Nejvyšší napětí</h2>
+                        <p id="highest_cell_voltage">-</p>
+                        <p id="highest_cell_voltage_num">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">thermostat</i>
+                        <h2>Nejnižší teplota</h2>
+                        <p id="lowest_cell_temperature">-</p>
+                        <p id="lowest_cell_temperature_num">-</p>
+                    </div>
+                    <div class="card">
+                        <i class="material-icons">thermostat</i>
+                        <h2>Nejvyšší teplota</h2>
+                        <p id="highest_cell_temperature">-</p>
+                        <p id="highest_cell_temperature_num">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Navigation Menu -->
+            <footer>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Domů</a></li>
+                        <li><a href="#" onclick="showPage('currents')">Proudy</a></li>
+                        <li><a href="#" onclick="showPage('detailed')">Detaily</a></li>
+                        <li><a href="#" onclick="showPage('others')">Ostatní</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Connection Status -->
+                <div id="connection-status" class="status">
+                    Stav připojení: <span id="status-text">Načítám...</span>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
